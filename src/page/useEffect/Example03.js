@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'antd';
 
 class Example3 extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Example3 extends Component {
         return (
             <div>
                 <p>You clicked {this.state.count} times</p>
-                <button onClick={this.addCount.bind(this)}>Chlick me</button>
+                <Button onClick={this.addCount.bind(this)}>Click me</Button>
             </div>
         );
     }

@@ -1,5 +1,10 @@
+/*
+ * @Author: Chauncey 
+ * @Date: 2020-09-08 09:21:05 
+ * @Last Modified by: Chauncey
+ * @Last Modified time: 2020-09-08 17:56:39
+ */
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import useEffectDemo from './useEffect';
 import useContextDemo from './useContext';
 import useReducerDemo from './useReducer';
@@ -7,29 +12,78 @@ import useContextAndReducerDemo from './useContext&Reducer'
 import useMemoDemo from './useMemo'
 import useRefDemo from './useRef'
 import myHook from './useWinSize'
+import { Layout, Anchor, Divider } from 'antd';
+import '../asserts/css/page.css'
+import PageHeader from './pageHeader'
+
+const { Link } = Anchor;
+const { Content, Sider } = Layout;
 function HookDemos() {
+
+    const height = window.innerHeight;
+
+    
+
     return (
         <>
-            <h1>React Hooks 实例演示</h1>
-            <p>需要同时打开控制台</p>
-            <Router>
-                <ul>
-                    <li><Link to="/useEffect">useEffect</Link></li>
-                    <li><Link to="/useContext">useContext</Link></li>
-                    <li><Link to="/useReducer">useReducer</Link></li>
-                    <li><Link to="/useReducerAndUseContext">useContext and useReducer</Link></li>
-                    <li><Link to="/useMemo">useMemo</Link></li>
-                    <li><Link to="/useRef">useRef</Link></li>
-                    <li><Link to="/useWinSize">useWinSize</Link></li>
-                </ul>
-                <Route path='/useEffect' component={useEffectDemo}></Route>
-                <Route path='/useContext' component={useContextDemo}></Route>
-                <Route path='/useReducer' component={useReducerDemo}></Route>
-                <Route path='/useReducerAndUseContext' component={useContextAndReducerDemo}></Route>
-                <Route path='/useMemo' component={useMemoDemo}></Route>
-                <Route path='/useRef' component={useRefDemo}></Route>
-                <Route path="/useWinSize" component={myHook}></Route>
-            </Router>
+            <Layout >
+                <Sider theme='light' >
+                    <div className="PageSider" onClick={() => console.log(document.getElementById("content"))}>
+                        <Anchor  getContainer={() => document.getElementById("content")}>
+                            <Link href="#useEffectDemo" title="useEffect" />
+                            <Link href="#useContextDemo" title="useContext" />
+                            <Link href="#useReducerDemo" title="useReducer" />
+                            <Link href="#useReducerAndUseContext" title="useReducer&UseContext" />
+                            <Link href="#useMemoDemo" title="useMemo" />
+                            <Link href="#useRefDemo" title="useRef" />
+                            <Link href="#useWinSize" title="useWinSize" />
+                        </Anchor>
+                    </div>
+
+                </Sider>
+                {/* <Layout > */}
+                <Content style={{ height: height }}>
+                    <PageHeader />
+                    <div className="PageContent" >
+                        <div id="content" className="Pagecontent content" >
+                            <div id="useEffectDemo">{useEffectDemo()}</div>
+                            <Divider />
+                            <Divider />
+                            <div id="useContextDemo">{useContextDemo()}</div>
+                            <Divider />
+                            <Divider />
+                            <div id="useReducerDemo">{useReducerDemo()}</div>
+                            <Divider />
+                            <Divider />
+                            <div id="useContextAndReducerDemo">{useContextAndReducerDemo()}</div>
+                            <Divider />
+                            <Divider />
+                            <div id="useMemoDemo">{useMemoDemo()}</div>
+                            <Divider />
+                            <Divider />
+                            <div id="useRefDemo">{useRefDemo()}</div>
+                            <Divider />
+                            <Divider />
+                            <div id="useWinSize">{myHook()} </div>
+                            <Divider />
+                            <Divider orientation="right">To Be Continued...</Divider>
+                            {/* <Router>
+                                    <Route path='/#useEffect' component={useEffectDemo}></Route>
+                                    <Route path='/#useContext' component={useContextDemo}></Route>
+                                    <Route path='/useReducer' component={useReducerDemo}></Route>
+                                    <Route path='/useReducerAndUseContext' component={useContextAndReducerDemo}></Route>
+                                    <Route path='/useMemo' component={useMemoDemo}></Route>
+                                    <Route path='/useRef' component={useRefDemo}></Route>
+                                    <Route path="/useWinSize" component={myHook}></Route>
+                                </Router> */}
+                        </div>
+
+                    </div>
+                </Content>
+
+                {/* </Layout> */}
+            </Layout>
+
         </>
     )
 }

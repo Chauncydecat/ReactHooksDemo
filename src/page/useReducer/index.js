@@ -2,11 +2,12 @@
  * @Author: Chauncey 
  * @Date: 2020-09-04 13:15:50 
  * @Last Modified by: Chauncey
- * @Last Modified time: 2020-09-04 13:29:51
+ * @Last Modified time: 2020-09-08 15:48:53
  */
 
 import React, { useReducer } from 'react'
-
+import { Button,Typography } from 'antd';
+const { Title } = Typography;
 function useReducerDemo() {
     const [count, dispatch] = useReducer((state, action) => {
         switch (action) {
@@ -18,11 +19,12 @@ function useReducerDemo() {
 
     return (
         <div>
-            <h1>useReducer演示</h1>
+            <Title>三、useReducer演示</Title>
             <p>通过useReducer共享状态，实现简单计数器</p>
-            <h2>现在的分数是{count}</h2>
-            <button onClick={() => dispatch("add")}>点我+1</button>
-            <button onClick={() => dispatch("sub")}>点我-1</button>
+            <Title level={3}>现在的分数是{count}</Title>
+            <br />
+            <Button type="primary" onClick={() => dispatch("add")}>点我+1</Button>
+            <Button type="primary" style={{marginLeft:'20px'}} onClick={() => dispatch("sub")}>点我-1</Button>
         </div>
     );
 }

@@ -1,15 +1,17 @@
 import React, { useState, useMemo } from 'react';
-
+import { Button } from 'antd';
+import { Typography, Divider } from 'antd';
+const { Title } = Typography;
 function UseMomoDemo() {
     const [chauncey, setChauncey] = useState('Chauncey在玩游戏');
     const [renne, setRenne] = useState('Renne在看电视');
 
     return (
         <>
-            <h1>UseMomo实例演示</h1>
+            <Title>五、UseMomo实例演示</Title>
             <p>主要解决父组件每次变化子组件都会渲染并执行方法的问题</p>
-            <button onClick={() => { setChauncey(new Date().getTime() + ',Chauncey去吃饭了') }}>Chauncey</button>
-            <button onClick={() => { setRenne(new Date().getTime() + ',Renne去吃饭了') }}>Renne</button>
+            <Button type="primary" onClick={() => { setChauncey(new Date().getTime() + ',Chauncey去吃饭了') }}>Chauncey</Button>
+            <Button style={{marginLeft:'20px'}} type="primary" onClick={() => { setRenne(new Date().getTime() + ',Renne去吃饭了') }}>Renne</Button>
             <ChildCom chauncey={chauncey} renne={renne}>{renne}</ChildCom>
         </>
     )
@@ -27,8 +29,10 @@ function ChildCom({ chauncey, children }) {
 
     return (
         <>
-            <div>{ChaunceyNow}</div>
-            <div>{children}</div>
+            <Divider />
+            <Title level={4}>{ChaunceyNow}</Title>
+            <Divider />
+            <Title level={4}>{children}</Title>
         </>
     )
 

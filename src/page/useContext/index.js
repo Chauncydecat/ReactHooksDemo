@@ -2,10 +2,11 @@
  * @Author: Chauncey 
  * @Date: 2020-09-04 11:22:57 
  * @Last Modified by: Chauncey
- * @Last Modified time: 2020-09-04 13:28:28
+ * @Last Modified time: 2020-09-08 15:04:08
  */
 import React, { useState, createContext, useContext } from 'react';
-
+import { Button, Typography, Divider  } from 'antd';
+const { Title } = Typography;
 const CountContext = createContext();
 
 function useContextDemo() {
@@ -13,13 +14,13 @@ function useContextDemo() {
 
     return (
         <>
-            <h1>useContext演示</h1>
+            <Title>二、useContext演示</Title>
             <p>通过useContext共享上下文，实现数据共享</p>
-            <p>You Clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-
+            <Title level={3}>You Clicked {count} times</Title>
+            <Button onClick={() => setCount(count + 1)}>Click me</Button>
+            <Divider />
             <CountContext.Provider value={count}>
-            <Counter />
+                <Counter />
             </CountContext.Provider>
         </>
     )
@@ -28,6 +29,6 @@ function useContextDemo() {
 
 function Counter() {
     const count = useContext(CountContext);
-    return <h2>这是子组件的显示:{count}</h2>
+    return <Title level={3}>这是子组件的同步显示:{count}</Title>
 }
 export default useContextDemo;

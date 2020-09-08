@@ -2,19 +2,20 @@
  * @Author: Chauncey 
  * @Date: 2020-09-04 13:47:10 
  * @Last Modified by: Chauncey
- * @Last Modified time: 2020-09-04 14:32:29
+ * @Last Modified time: 2020-09-08 15:49:24
  */
 
 import React from 'react';
 import ShowArea from './ShowArea';
 import Buttons from './Buttons';
 import { Color } from './color';
-
+import { Typography, Divider } from 'antd';
+const { Title } = Typography;
 function ContextAndReducer() {
 
     return (
         <div>
-            <h1>useContext与useReducer组合演示</h1>
+            <Title>四、useContext与useReducer组合演示</Title>
             <p>
                 替代Redux:
                 </p>
@@ -24,6 +25,7 @@ function ContextAndReducer() {
             <p>
                 useReducer：通过action的传递，更新复杂逻辑的状态，主要是可以实现类似Redux中的Reducer部分，实现业务逻辑的可行性。
             </p>
+            <Divider />
             <Color>
                 <ShowArea />
                 <Buttons />

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 //import useEffectDemo from './page/useEffect';
 //import useContext from './page/useContetxt';
 import HookDeomos from './page/index';
-
+import 'antd/dist/antd.css'
 ReactDOM.render(
 
   <HookDeomos />,

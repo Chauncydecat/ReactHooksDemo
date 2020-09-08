@@ -2,10 +2,14 @@
  * @Author: Chauncey 
  * @Date: 2020-09-04 10:08:27 
  * @Last Modified by: Chauncey
- * @Last Modified time: 2020-09-04 11:20:54
+ * @Last Modified time: 2020-09-08 13:33:51
  */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { Button, Divider } from 'antd';
+import { Typography } from 'antd';
+const { Title } = Typography;
+
 function Example3X() {
 
     const [count, setCount] = useState(0)
@@ -20,10 +24,11 @@ function Example3X() {
     return (
         <>
             <p>You Clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-            <p>
+            <Button onClick={() => setCount(count + 1)}>Click me</Button>
+            <Divider />
+            <Title level={3}>
                 useEffect解绑替代componentWillMount
-            </p>
+            </Title>
             <Router>
                 <ul>
                     <li><Link to='/useEffect/newPage01'>前往页面一</Link></li>
