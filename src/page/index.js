@@ -67,15 +67,6 @@ function HookDemos() {
                             <div id="useWinSize">{myHook()} </div>
                             <Divider />
                             <Divider orientation="right">To Be Continued...</Divider>
-                            {/* <Router>
-                                    <Route path='/#useEffect' component={useEffectDemo}></Route>
-                                    <Route path='/#useContext' component={useContextDemo}></Route>
-                                    <Route path='/useReducer' component={useReducerDemo}></Route>
-                                    <Route path='/useReducerAndUseContext' component={useContextAndReducerDemo}></Route>
-                                    <Route path='/useMemo' component={useMemoDemo}></Route>
-                                    <Route path='/useRef' component={useRefDemo}></Route>
-                                    <Route path="/useWinSize" component={myHook}></Route>
-                                </Router> */}
                         </div>
 
                     </div>
